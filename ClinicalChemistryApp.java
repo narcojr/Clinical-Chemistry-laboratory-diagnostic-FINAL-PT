@@ -16,13 +16,22 @@ public class ClinicalChemistryApp extends JFrame {
     private List<String> testNames = new ArrayList<>();
     private List<String> refMale = new ArrayList<>();
     private List<String> refFemale = new ArrayList<>();
+
     //this is the header
     public ClinicalChemistryApp() {
+        // Global font override for readability
+        UIManager.put("Label.font", new Font("Arial", Font.BOLD, 18));
+        UIManager.put("TextField.font", new Font("Arial", Font.PLAIN, 22));
+        UIManager.put("ComboBox.font", new Font("Arial", Font.PLAIN, 22));
+        UIManager.put("CheckBox.font", new Font("Arial", Font.PLAIN, 18));
+        UIManager.put("Button.font", new Font("Arial", Font.BOLD, 24));
+        UIManager.put("TitledBorder.font", new Font("Arial", Font.BOLD, 18));
+
         setTitle("NUCOMP Diagnostic Corporation - Clinical Chemistry by COMSCI");
-        setSize(950, 850);
+        setSize(1300, 850);// this is the screen size, it can be edited to adjust the size of the application
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new BorderLayout(30, 30)); // this is the boderlayout, the size can be adjusted based right here
+        setLayout(new BorderLayout(30, 30)); 
 
         add(buildHeader(), BorderLayout.NORTH);
         add(buildCenterPanel(), BorderLayout.CENTER);
@@ -34,7 +43,7 @@ public class ClinicalChemistryApp extends JFrame {
     private JPanel buildHeader() {
         JPanel header = new JPanel(new BorderLayout());
         JLabel title = new JLabel("CLINICAL CHEMISTRY LABORATORY", JLabel.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 28));
+        title.setFont(new Font("Arial", Font.BOLD, 32)); // header font
         header.add(title, BorderLayout.CENTER);
         return header;
     }
@@ -45,18 +54,30 @@ public class ClinicalChemistryApp extends JFrame {
         center.add(buildTestPanel(), BorderLayout.CENTER);
         return center;
     }
+
     // this is for the patient info panel
     private JPanel buildPatientPanel() {
         JPanel panel = new JPanel(new GridLayout(4, 4, 8, 8));
         panel.setBorder(BorderFactory.createTitledBorder("Patient Information"));
 
+        Font inputFont = new Font("Arial", Font.PLAIN, 22);
+
         nameField = new JTextField();
+        nameField.setFont(inputFont);
+
         ageField = new JTextField();
+        ageField.setFont(inputFont);
+
         lastMealField = new JTextField();
+        lastMealField.setFont(inputFont);
+
         sexBox = new JComboBox<>(new String[]{"MALE", "FEMALE"});
+        sexBox.setFont(inputFont);
 
         dateField = new JTextField(LocalDate.now().toString());//this is a automatic date formater
+        dateField.setFont(inputFont);
         timeField = new JTextField(LocalTime.now().withNano(0).toString());// this the same but for time it uses the computer build in time
+        timeField.setFont(inputFont);
         dateField.setEditable(false);
         timeField.setEditable(false);
 
@@ -77,37 +98,43 @@ public class ClinicalChemistryApp extends JFrame {
 
         return panel;
     }
+
     // this is the patient panel it show the available test that the user can input
     private JScrollPane buildTestPanel() {
         JPanel panel = new JPanel(new GridLayout(0, 3, 10, 10));
         panel.setBorder(BorderFactory.createTitledBorder("Clinical Chemistry Tests"));
 
-        addTest(panel, "FBS - mg/dL", "74–100", "74–100,  mmol/L");
-        addTest(panel, "RBS - mg/dL", "-", "-    mmol/L");
-        addTest(panel, "Total Cholesterol - mg/dL", "150–200", "150–200  mmol/L");
-        addTest(panel, "HDL - mg/dL", "35–80", "42–88  mmol/L");
-        addTest(panel, "LDL - mg/dL", "50–130", "50–130  mmol/L");
-        addTest(panel, "Triglycerides - mg/dL", "60–165", "40–140  mmol/L");
-        addTest(panel, "Creatinine - mg/dL", "0.9–1.3", "0.6–1.2  umol/L");
-        addTest(panel, "Uric Acid - mg/dL", "3.5–7.2", "2.6–6.0  mmol/L");
-        addTest(panel, "BUN - mg/dL", "6.0–20.0", "6.0–20.0  mmol/L");
-        addTest(panel, "AST/SGOT - U/L", "<46", "<46  uKat/L");
-        addTest(panel, "ALT/SGPT - U/L", "<49", "<49  uKat/L");
-        addTest(panel, "Sodium - mEq/L", "135–145", "135–145  mmol/L");
-        addTest(panel, "Potassium - mEq/L", "3.5–5.0", "3.5–5.0  mmol/L");
-        addTest(panel, "Chloride - mEq/L", "96–110", "96–110  mmol/L");
-        addTest(panel, "TCalcium - mg/dL", "8.6–10.28", "8.6–10.28  mmol/L");
-        addTest(panel, "iCalcium - mg/dL", "4.4–5.2", "4.4–5.2  mmol/L");
+        addTest(panel, "FBS - mg/dL", "74–100", "74–100");
+        addTest(panel, "RBS - mg/dL", "-", "-");
+        addTest(panel, "Total Cholesterol - mg/dL", "150–200", "150–200");
+        addTest(panel, "HDL - mg/dL", "35–80", "42–88");
+        addTest(panel, "LDL - mg/dL", "50–130", "50–130");
+        addTest(panel, "Triglycerides - mg/dL", "60–165", "40–140");
+        addTest(panel, "Creatinine - mg/dL", "0.9–1.3", "0.6–1.2");
+        addTest(panel, "Uric Acid - mg/dL", "3.5–7.2", "2.6–6.0");
+        addTest(panel, "BUN - mg/dL", "6.0–20.0", "6.0–20.0");
+        addTest(panel, "AST/SGOT - U/L", "<46", "<46");
+        addTest(panel, "ALT/SGPT - U/L", "<49", "<49");
+        addTest(panel, "Sodium - mEq/L", "135–145", "135–145");
+        addTest(panel, "Potassium - mEq/L", "3.5–5.0", "3.5–5.0");
+        addTest(panel, "Chloride - mEq/L", "96–110", "96–110");
+        addTest(panel, "TCalcium - mg/dL", "8.6–10.28", "8.6–10.28");
+        addTest(panel, "iCalcium - mg/dL", "4.4–5.2", "4.4–5.2");
 
         JScrollPane scroll = new JScrollPane(panel);
-        scroll.setPreferredSize(new Dimension(900, 400));
+        scroll.setPreferredSize(new Dimension(1000, 450));
         return scroll;
     }
 
     private void addTest(JPanel panel, String testName, String maleRange, String femaleRange) {
         JCheckBox cb = new JCheckBox(testName);
+        cb.setFont(new Font("Arial", Font.PLAIN, 18));
+
         JTextField tf = new JTextField();
-        JLabel rangeLabel = new JLabel("MALE: " + maleRange + " / FEMALE: " + femaleRange);
+        tf.setFont(new Font("Arial", Font.PLAIN, 22));
+
+        JLabel rangeLabel = new JLabel("MALE: " + maleRange + " | FEMALE: " + femaleRange);
+        rangeLabel.setFont(new Font("Arial", Font.ITALIC, 16));
 
         testChecks.add(cb);
         testResults.add(tf);
@@ -120,16 +147,44 @@ public class ClinicalChemistryApp extends JFrame {
         panel.add(rangeLabel);
     }
 
+    //this method interpret the test result LOW NORMAL HIGH
+    private String interpretResult(double value, String refRange) {
+        try {
+            //this is for reference range like "74–100"
+            if (refRange.contains("–")) {
+                String[] parts = refRange.replace("<", "").split("–");
+                double min = Double.parseDouble(parts[0].trim());
+                double max = Double.parseDouble(parts[1].trim());
+
+                if (value < min) return "LOW";
+                if (value > max) return "HIGH";
+                return "NORMAL";
+            }
+            //this is for reference range like "<46"
+            else if (refRange.contains("<")) {
+                double max = Double.parseDouble(refRange.replace("<", "").trim());
+                if (value > max) return "HIGH";
+                return "NORMAL";
+            }
+        } 
+        catch (Exception e) {
+            return "N/A"; // if reference cannot be parsed
+        }
+
+        return "N/A";
+    }
+
     private JPanel buildButtonPanel() {
         JPanel panel = new JPanel();
         JButton submit = new JButton("Click to Generate Result");
-        submit.setFont(new Font("Arial", Font.BOLD, 20));
+        submit.setFont(new Font("Arial", Font.BOLD, 26));
 
         submit.addActionListener(e -> processData());
         panel.add(submit);
 
         return panel;
     }
+
     //this is for the error trapping to make sure there is no missing or empty input 
     private void processData() {
         try {
@@ -146,6 +201,7 @@ public class ClinicalChemistryApp extends JFrame {
                     sex,
                     lastMealField.getText().trim()
             );
+
             //this is for the result output
             StringBuilder result = new StringBuilder();
             result.append("PATIENT INFORMATION\n");
@@ -158,6 +214,7 @@ public class ClinicalChemistryApp extends JFrame {
             result.append("------------\n");
 
             boolean atLeastOneTest = false;
+
             //this is also for the error trapping to make sure th information is not leave empty
             for (int i = 0; i < testChecks.size(); i++) {
                 if (testChecks.get(i).isSelected()) {
@@ -172,58 +229,50 @@ public class ClinicalChemistryApp extends JFrame {
 
                     patient.addTestResult(testNames.get(i), value);
 
+                    //this is for showing reference range based on sex
                     String refRange = sex.equals("MALE") ? refMale.get(i) : refFemale.get(i);
-                    String interpretation = interpret(value, refRange);
 
-                    result.append(String.format("%-20s = %-8s Ref: %-12s => %s\n",
-                            testNames.get(i), valueStr, refRange, interpretation));
+                    //this is for interpretation LOW NORMAL HIGH
+                    String interpretation = interpretResult(value, refRange);
+
+                    result.append(testNames.get(i))
+                          .append(" = ")
+                          .append(value)
+                          .append(" | Ref: ")
+                          .append(refRange)
+                          .append(" | Result: ")
+                          .append(interpretation)
+                          .append("\n");
                 }
             }
 
             if (!atLeastOneTest) {
-                throw new Exception("Please select at least one laboratory test.");
+                throw new Exception("Please select at least one test.");
             }
 
-            JTextArea area = new JTextArea(result.toString());
-            area.setEditable(false);
-            area.setFont(new Font("Monospaced", Font.PLAIN, 12));
+            //this is the output popup
+            JTextArea outputArea = new JTextArea(result.toString());
+            outputArea.setFont(new Font("Monospaced", Font.PLAIN, 18));
+            outputArea.setEditable(false);
 
-            JOptionPane.showMessageDialog(
-                    this,
-                    new JScrollPane(area),
-                    "Laboratory Result",
-                    JOptionPane.INFORMATION_MESSAGE
-            );
+            JOptionPane.showMessageDialog(this, new JScrollPane(outputArea),
+                    "Laboratory Result", JOptionPane.INFORMATION_MESSAGE);
 
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Age and results must be valid numbers.");
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage());
+        } 
+        catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Age and test results must be numbers!", "Error", JOptionPane.ERROR_MESSAGE);
+        } 
+        catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    // this part will determine if the patient result is normal or high
-    private String interpret(double value, String refRange) {
-        if (refRange.equals("-")) return "No Range";
 
-        if (refRange.startsWith("<")) {
-            double max = Double.parseDouble(refRange.substring(1));
-            return value < max ? "NORMAL" : "HIGH";
-        }
-
-        String[] parts = refRange.split("–");
-        double min = Double.parseDouble(parts[0]);
-        double max = Double.parseDouble(parts[1]);
-
-        if (value < min) return "LOW";
-        if (value > max) return "HIGH";
-        return "NORMAL";
-    }
-
-       
+    //this is the main method to run the system
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(ClinicalChemistryApp::new);
+        SwingUtilities.invokeLater(() -> new ClinicalChemistryApp());
     }
 }
+
 //---------------------------|
 // Partner:                  |
 // Narco D. Villando JR.     |
@@ -231,6 +280,6 @@ public class ClinicalChemistryApp extends JFrame {
 //---------------------------|
 
 
-// in this program we use jframe for the GUI and we learn about jframe from a youtuber/coder "Bro code"
+// in this program we use java swing for the GUI and we learn about jframe from a youtuber/coder "Bro code"
 // this is the video we watch for learning about jframe " https://www.youtube.com/watch?v=7GaAW-DdPuI "
 // also we use copilot for the assistance some of the error trapping 
