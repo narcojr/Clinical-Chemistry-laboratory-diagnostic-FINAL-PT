@@ -22,7 +22,7 @@ public class ClinicalChemistryApp extends JFrame {
         setSize(950, 850);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new BorderLayout(10, 10)); // this is the boderlayout, the size can be adjusted based right here
+        setLayout(new BorderLayout(30, 30)); // this is the boderlayout, the size can be adjusted based right here
 
         add(buildHeader(), BorderLayout.NORTH);
         add(buildCenterPanel(), BorderLayout.CENTER);
@@ -82,22 +82,22 @@ public class ClinicalChemistryApp extends JFrame {
         JPanel panel = new JPanel(new GridLayout(0, 3, 10, 10));
         panel.setBorder(BorderFactory.createTitledBorder("Clinical Chemistry Tests"));
 
-        addTest(panel, "FBS", "74–100", "74–100");
-        addTest(panel, "RBS", "-", "-");
-        addTest(panel, "Total Cholesterol", "150–200", "150–200");
-        addTest(panel, "HDL", "35–80", "42–88");
-        addTest(panel, "LDL", "50–130", "50–130");
-        addTest(panel, "Triglycerides", "60–165", "40–140");
-        addTest(panel, "Creatinine", "0.9–1.3", "0.6–1.2");
-        addTest(panel, "Uric Acid", "3.5–7.2", "2.6–6.0");
-        addTest(panel, "BUN", "6.0–20.0", "6.0–20.0");
-        addTest(panel, "AST/SGOT", "<46", "<46");
-        addTest(panel, "ALT/SGPT", "<49", "<49");
-        addTest(panel, "Sodium", "135–145", "135–145");
-        addTest(panel, "Potassium", "3.5–5.0", "3.5–5.0");
-        addTest(panel, "Chloride", "96–110", "96–110");
-        addTest(panel, "TCalcium", "8.6–10.28", "8.6–10.28");
-        addTest(panel, "iCalcium", "4.4–5.2", "4.4–5.2");
+        addTest(panel, "FBS - mg/dL", "74–100", "74–100,  mmol/L");
+        addTest(panel, "RBS - mg/dL", "-", "-    mmol/L");
+        addTest(panel, "Total Cholesterol - mg/dL", "150–200", "150–200  mmol/L");
+        addTest(panel, "HDL - mg/dL", "35–80", "42–88  mmol/L");
+        addTest(panel, "LDL - mg/dL", "50–130", "50–130  mmol/L");
+        addTest(panel, "Triglycerides - mg/dL", "60–165", "40–140  mmol/L");
+        addTest(panel, "Creatinine - mg/dL", "0.9–1.3", "0.6–1.2  umol/L");
+        addTest(panel, "Uric Acid - mg/dL", "3.5–7.2", "2.6–6.0  mmol/L");
+        addTest(panel, "BUN - mg/dL", "6.0–20.0", "6.0–20.0  mmol/L");
+        addTest(panel, "AST/SGOT - U/L", "<46", "<46  uKat/L");
+        addTest(panel, "ALT/SGPT - U/L", "<49", "<49  uKat/L");
+        addTest(panel, "Sodium - mEq/L", "135–145", "135–145  mmol/L");
+        addTest(panel, "Potassium - mEq/L", "3.5–5.0", "3.5–5.0  mmol/L");
+        addTest(panel, "Chloride - mEq/L", "96–110", "96–110  mmol/L");
+        addTest(panel, "TCalcium - mg/dL", "8.6–10.28", "8.6–10.28  mmol/L");
+        addTest(panel, "iCalcium - mg/dL", "4.4–5.2", "4.4–5.2  mmol/L");
 
         JScrollPane scroll = new JScrollPane(panel);
         scroll.setPreferredSize(new Dimension(900, 400));
@@ -233,5 +233,4 @@ public class ClinicalChemistryApp extends JFrame {
 
 // in this program we use jframe for the GUI and we learn about jframe from a youtuber/coder "Bro code"
 // this is the video we watch for learning about jframe " https://www.youtube.com/watch?v=7GaAW-DdPuI "
-// we use the assistance of AI gpt for the loops and for the test panel
-// also for we use copilot for the assistance some of the error trapping 
+// also we use copilot for the assistance some of the error trapping 
