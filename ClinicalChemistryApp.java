@@ -105,7 +105,7 @@ public class ClinicalChemistryApp extends JFrame {
         panel.setBorder(BorderFactory.createTitledBorder("Clinical Chemistry Tests"));
 
         addTest(panel, "FBS - mg/dL", "74–100", "74–100");
-        addTest(panel, "RBS - mg/dL", "-", "-");
+        addTest(panel, "RBS - mg/dL", "70–140", "70–140");
         addTest(panel, "Total Cholesterol - mg/dL", "150–200", "150–200");
         addTest(panel, "HDL - mg/dL", "35–80", "42–88");
         addTest(panel, "LDL - mg/dL", "50–130", "50–130");
@@ -282,4 +282,5 @@ public class ClinicalChemistryApp extends JFrame {
 
 // in this program we use java swing for the GUI and we learn about jframe from a youtuber/coder "Bro code"
 // this is the video we watch for learning about jframe " https://www.youtube.com/watch?v=7GaAW-DdPuI "
-// also we use copilot for the assistance some of the error trapping 
+// also we use copilot for the assistance some of the error trapping
+// we also use gpt to assist us in the mathematics side on the calculation of the result we only use gpt to check if the calculation is correct 
