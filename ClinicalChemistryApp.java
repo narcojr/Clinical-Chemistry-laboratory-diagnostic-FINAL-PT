@@ -20,12 +20,12 @@ public class ClinicalChemistryApp extends JFrame {
     //this is the header
     public ClinicalChemistryApp() {
         // Global font override for readability
-        UIManager.put("Label.font", new Font("Arial", Font.BOLD, 18));
-        UIManager.put("TextField.font", new Font("Arial", Font.PLAIN, 22));
-        UIManager.put("ComboBox.font", new Font("Arial", Font.PLAIN, 22));
-        UIManager.put("CheckBox.font", new Font("Arial", Font.PLAIN, 18));
+        UIManager.put("Label.font", new Font("Arial", Font.BOLD, 24));
+        UIManager.put("TextField.font", new Font("Arial", Font.PLAIN, 24));
+        UIManager.put("ComboBox.font", new Font("Arial", Font.PLAIN, 24));
+        UIManager.put("CheckBox.font", new Font("Arial", Font.PLAIN, 24));
         UIManager.put("Button.font", new Font("Arial", Font.BOLD, 24));
-        UIManager.put("TitledBorder.font", new Font("Arial", Font.BOLD, 18));
+        UIManager.put("TitledBorder.font", new Font("Arial", Font.BOLD, 24));
 
         setTitle("NUCOMP Diagnostic Corporation - Clinical Chemistry by COMSCI");
         setSize(1300, 850);// this is the screen size, it can be edited to adjust the size of the application
@@ -60,7 +60,7 @@ public class ClinicalChemistryApp extends JFrame {
         JPanel panel = new JPanel(new GridLayout(4, 4, 8, 8));
         panel.setBorder(BorderFactory.createTitledBorder("Patient Information"));
 
-        Font inputFont = new Font("Arial", Font.PLAIN, 22);
+        Font inputFont = new Font("Arial", Font.PLAIN, 24);
 
         nameField = new JTextField();
         nameField.setFont(inputFont);
@@ -128,13 +128,13 @@ public class ClinicalChemistryApp extends JFrame {
 
     private void addTest(JPanel panel, String testName, String maleRange, String femaleRange) {
         JCheckBox cb = new JCheckBox(testName);
-        cb.setFont(new Font("Arial", Font.PLAIN, 18));
+        cb.setFont(new Font("Arial", Font.PLAIN, 24));
 
         JTextField tf = new JTextField();
-        tf.setFont(new Font("Arial", Font.PLAIN, 22));
+        tf.setFont(new Font("Arial", Font.PLAIN, 24));
 
         JLabel rangeLabel = new JLabel("MALE: " + maleRange + " | FEMALE: " + femaleRange);
-        rangeLabel.setFont(new Font("Arial", Font.ITALIC, 16));
+        rangeLabel.setFont(new Font("Arial", Font.ITALIC, 14));
 
         testChecks.add(cb);
         testResults.add(tf);
@@ -176,8 +176,8 @@ public class ClinicalChemistryApp extends JFrame {
 
     private JPanel buildButtonPanel() {
         JPanel panel = new JPanel();
-        JButton submit = new JButton("Click to Generate Result");
-        submit.setFont(new Font("Arial", Font.BOLD, 26));
+        JButton submit = new JButton("Click here to Generate Result");
+        submit.setFont(new Font("Arial", Font.BOLD, 30));
 
         submit.addActionListener(e -> processData());
         panel.add(submit);
@@ -283,4 +283,4 @@ public class ClinicalChemistryApp extends JFrame {
 // in this program we use java swing for the GUI and we learn about jframe from a youtuber/coder "Bro code"
 // this is the video we watch for learning about jframe " https://www.youtube.com/watch?v=7GaAW-DdPuI "
 // also we use copilot for the assistance some of the error trapping
-// we also use gpt to assist us in the mathematics side on the calculation of the result we only use gpt to check if the calculation is correct 
+
