@@ -28,7 +28,7 @@ public class ClinicalChemistryApp extends JFrame {
         UIManager.put("TitledBorder.font", new Font("Arial", Font.BOLD, 24));
 
         setTitle("NUCOMP Diagnostic Corporation - Clinical Chemistry by COMSCI");
-        setSize(1300, 850);// this is the screen size, it can be edited to adjust the size of the application
+        setSize(1280, 720);// this is the screen size, it can be edited to adjust the size of the application
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout(30, 30)); 
