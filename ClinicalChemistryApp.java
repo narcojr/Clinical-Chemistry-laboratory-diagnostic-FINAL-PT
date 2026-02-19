@@ -20,11 +20,11 @@ public class ClinicalChemistryApp extends JFrame {
     //this is the header
     public ClinicalChemistryApp() {
         // Global font override for readability
-        UIManager.put("Label.font", new Font("Arial", Font.BOLD, 30));
-        UIManager.put("TextField.font", new Font("Arial", Font.PLAIN, 30));
-        UIManager.put("ComboBox.font", new Font("Arial", Font.PLAIN, 30));
-        UIManager.put("CheckBox.font", new Font("Arial", Font.PLAIN, 30));
-        UIManager.put("Button.font", new Font("Arial", Font.BOLD, 35));
+        UIManager.put("Label.font", new Font("Arial", Font.BOLD, 20));
+        UIManager.put("TextField.font", new Font("Arial", Font.PLAIN, 20));
+        UIManager.put("ComboBox.font", new Font("Arial", Font.PLAIN, 20));
+        UIManager.put("CheckBox.font", new Font("Arial", Font.PLAIN, 20));
+        UIManager.put("Button.font", new Font("Arial", Font.BOLD, 20));
         UIManager.put("TitledBorder.font", new Font("Arial", Font.BOLD, 24));
 
         setTitle("NUCOMP Diagnostic Corporation - Clinical Chemistry by COMSCI");
